@@ -4,32 +4,31 @@ body {
     display: flex;
     height: 100vh;
     font-family: sans-serif;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 .lado-esquerdo {
-    flex: 1;
-    position: relative;
-    left: 0px;
+    width: 40%;
     background-image: url("pug.png");
     background-repeat: no-repeat;
     background-size: 700px;
     background-position:top left;
+
 }
 
 .fala-pug {
     position: absolute;
-    top: 70px;
-    left: 230px;
-    font-size: 3rem;
+    top: 140px;
+    left: 270px;
+    font-size: 2rem;
     color: black;
     font-weight: bold;
 }
 
 .lado-direito {
-    flex: 1;
+    width: 60%;
     display: flex;
-    justify-content:top right; 
+    justify-content:center; 
     align-items: center; 
     background-color: white;
 }
@@ -61,18 +60,30 @@ body {
 }
 
 .botao {
+    width: 300px;
+    padding: 12px;
     border: 1px solid #000;
+    border-radius: 25px;
+    background: white;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.botao:hover {
+    background-color: #f2f2f2;
 }
 
 .botao-destaque {
     border: none;
     background-color: #000;
     color: white;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .icone {
@@ -82,5 +93,6 @@ body {
 
 .texto-ajuda {
     font-size: 0.9rem;
-    color: #666;
+    color: #070707;
+    text-decoration: none;
 }
