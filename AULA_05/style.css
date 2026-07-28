@@ -101,7 +101,7 @@ body {
 }
 
 .botao-destaque:hover {
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
     color: #000;
     border: 2px solid black;
 }
