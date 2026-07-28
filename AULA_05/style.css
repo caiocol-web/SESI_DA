@@ -91,6 +91,7 @@ body {
 }
 
 .botao-destaque {
+    font-size: 18px;
     border: none;
     background-color: #000;
     color: white;
