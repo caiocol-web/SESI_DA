@@ -7,29 +7,26 @@
     <title>Controle financeiro</title>
 </head>
 <body>
-    <h1>Controle financeiro pessoal:</h1>
+  <h1>Saldo: <span id="saldo">R$ 0</span></h1>
 
-    <label for="nome">Nome</label>
-    <input id="nome" type="text">
-<br>
-    <label for="emprego">Emprego</label>
-    <input id="emprego" type="text">
-<br>
-    <label for="salario">Salario</label>
-    <input id="salario" type="number">
-<br>
-    <label for="despesas">Despesas Fixas</label>
-    <input id="despesas" type="number">
-<br>
-    <button onclick="calcular()">Calcular</button>
+  <form id="form">
+    <input id="descricao" placeholder="Descrição" required>
+    <input id="valor" type="number" placeholder="Valor" required>
+    <select id="tipo">
+      <option value="receita">Receita</option>
+      <option value="despesa">Despesa</option>
+    </select>
+    <button>Adicionar</button>
+  </form>
 
-    <div id = "oculto1" style="display: none;">
-        <p> asdawdwa</p>
-    </div>
+  <select id="filtro">
+  <option value="todos">Todos</option>
+  <option value="receita">Só receitas</option>
+  <option value="despesa">Só despesas</option>
+</select>
 
+  <ul id="lista"></ul>
 
-
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
