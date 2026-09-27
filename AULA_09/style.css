@@ -36,6 +36,7 @@ h1 {
 
 #form input,
 #form select {
+  cursor: pointer;
   padding: 8px;
   border: 1px solid #cfc6ac;
   border-radius: 4px;
@@ -83,5 +84,14 @@ h1 {
   border: none;
   color: #a3442f;
   font-size: 1rem;
+  cursor: pointer;
+}
+
+#filtro {
+  padding: 8px;
+  border: 1px solid #cfc6ac;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 0.95rem;
   cursor: pointer;
 }
