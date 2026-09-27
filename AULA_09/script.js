@@ -8,19 +8,33 @@ function atualizarTela() {
     let sinal = 0;
     let filtro = document.getElementById('filtro').value;
 
+    let totalReceitas = 0;
+
+for (const t of transacoes) {
+    if (t.tipo === 'receita') {
+        totalReceitas += t.valor;
+    }
+}
+
     for (const t of transacoes) {
-          if (filtro !== 'todos' && t.tipo !== filtro) {
-    continue;
-  }
+        if (filtro !== 'todos' && t.tipo !== filtro) {
+            continue;
+        }
+
+        let porcentagem = 0;
+        if (totalReceitas > 0) {
+            porcentagem = (t.valor / totalReceitas) * 100;
+        }
+
         if (t.tipo === 'receita') {
             sinal = '+';
             saldo += t.valor;
-            texto = '<li>' + t.descricao + ': '  + ' R$ ' + sinal + ' ' + t.valor + ' <button onclick="excluir('+ t.id +')">Excluir</button>' + '</li>';
+             texto = '<li>' + t.descricao + ': ' + sinal + ' R$ ' + t.valor + ' <button onclick="excluir(' + t.id + ')">Excluir</button></li>';
         }
         else {
             sinal = '-';
             saldo -= t.valor;
-            texto = '<li>' + t.descricao + ': ' + ' R$ '+ sinal + ' ' + t.valor  + ' <button onclick="excluir('+ t.id +')">Excluir</button>' + '</li>';
+            texto = '<li>' + t.descricao + ': ' + sinal + ' R$ ' + t.valor + ' (' + porcentagem.toFixed(1) + '%) <button onclick="excluir('+ t.id +')">Excluir</button></li>';
         }
         lista.innerHTML += texto;
     }
@@ -39,23 +53,25 @@ document.getElementById('form').addEventListener('submit', function (e) {
     localStorage.setItem('transacoes', JSON.stringify(transacoes));
     atualizarTela();
     e.target.reset();
-}); 
+});
 
 document.getElementById('filtro').addEventListener('change', atualizarTela);
 
 atualizarTela();
 
 function excluir(id) {
-  let novaLista = [];
+    let novaLista = [];
 
-  for (const t of transacoes) {
-    if (t.id !== id) {
-      novaLista.push(t);
+    for (const t of transacoes) {
+        if (t.id !== id) {
+            novaLista.push(t);
+        }
     }
-  }
 
-  transacoes = novaLista;
-  localStorage.setItem('transacoes', JSON.stringify(transacoes));
-  atualizarTela();
+    transacoes = novaLista;
+    localStorage.setItem('transacoes', JSON.stringify(transacoes));
+    atualizarTela();
 }
+
+
 
